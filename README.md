@@ -21,7 +21,7 @@
 Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````bash
-go get -d github.com/essentialkaos/depsy
+go get github.com/essentialkaos/depsy
 ````
 
 ### Usage example
