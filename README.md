@@ -1,7 +1,7 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/depsy.svg"/></a></p>
 
 <p align="center">
-  <a href="https://kaos.sh/g/depsy.v1"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev" /></a>
+  <a href="https://kaos.sh/g/depsy"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev" /></a>
   <a href="https://kaos.sh/w/depsy/ci"><img src="https://kaos.sh/w/depsy/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/r/depsy"><img src="https://kaos.sh/r/depsy.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/c/depsy"><img src="https://kaos.sh/c/depsy.svg" alt="Coverage Status" /></a>
