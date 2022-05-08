@@ -14,7 +14,7 @@
 
 <br/>
 
-`depsy` is simple Go package for parsing dependencies info from go.mod files with minimal dependencies.
+`depsy` is simple Go package with minimal dependencies for parsing dependencies info in from go.mod files.
 
 ### Installation
 
