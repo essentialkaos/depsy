@@ -32,7 +32,7 @@ Second reason — with debug package, you can't print only direct dependencies.
 
 ### Installation
 
-Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.18+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````bash
 go get github.com/essentialkaos/depsy
@@ -44,7 +44,10 @@ go get github.com/essentialkaos/depsy
 package main
 
 import (
+  _ "embed"
+
   "fmt"
+
   "github.com/essentialkaos/depsy"
 )
 
