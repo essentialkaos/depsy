@@ -26,13 +26,13 @@
 |--------|-----------------|
 | Original binary | `1819094` |
 | depsy + embeded `go.mod` | `1861531` (+ 42,437) |
-| `runtime/debug` without any parsing logic | `1891541` (+ 72,447) |
+| `runtime/debug` | `1891541` (+ 72,447) |
 
 Second reason — with debug package, you can't print only direct dependencies.
 
 ### Installation
 
-Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.18+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````bash
 go get github.com/essentialkaos/depsy
@@ -44,7 +44,10 @@ go get github.com/essentialkaos/depsy
 package main
 
 import (
+  _ "embed"
+
   "fmt"
+
   "github.com/essentialkaos/depsy"
 )
 
