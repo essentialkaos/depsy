@@ -16,6 +16,20 @@
 
 `depsy` is simple Go package with minimal dependencies for parsing dependencies info in from go.mod files.
 
+### FAQ
+
+**Q: Why should I  use `depsy` instead of using [`runtime/debug.ReadBuildInfo()`](https://pkg.go.dev/runtime/debug@go1.20.1#ReadBuildInfo) for reading already embedded info?**
+
+**A:** First of all — size:
+
+| Binary | Size (in bytes) |
+|--------|-----------------|
+| Original binary | `1819094` |
+| depsy + embeded `go.mod` | `1861531` (+ 42,437) |
+| `runtime/debug` without any parsing logic | `1891541` (+ 72,447) |
+
+Second reason — with debug package, you can't print only direct dependencies.
+
 ### Installation
 
 Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
