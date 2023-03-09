@@ -42,7 +42,7 @@ func (s *DepsySuite) TestExtract(c *C) {
 	c.Assert(len(deps), Equals, 1)
 	deps = Extract(data, true)
 	c.Assert(len(deps), Equals, 4)
-	c.Assert(deps[0], DeepEquals, Dependency{"github.com/essentialkaos/check", "1.3.0", ""})
+	c.Assert(deps[0], DeepEquals, Dependency{"github.com/essentialkaos/check", "1.4.0", ""})
 }
 
 func (s *DepsySuite) TestAux(c *C) {
