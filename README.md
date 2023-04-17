@@ -25,7 +25,7 @@
 | Binary | Size (in bytes) |
 |--------|-----------------|
 | Original binary | `1819094` |
-| depsy + embeded `go.mod` | `1861531` (+ 42,437) |
+| depsy + embedded `go.mod` | `1861531` (+ 42,437) |
 | `runtime/debug` | `1891541` (+ 72,447) |
 
 Second reason — with debug package, you can't print only direct dependencies.
