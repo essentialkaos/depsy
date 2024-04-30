@@ -49,6 +49,8 @@ func (s *DepsySuite) TestExtract(c *C) {
 	deps = Extract(data, true)
 
 	c.Assert(deps[5], DeepEquals, Dependency{"github.com/milvus-io/pulsar-client-go", "0.6.10", ""})
+	c.Assert(deps[14], DeepEquals, Dependency{"github.com/golang/protobuf", "1.5.3", "/sources/golang/protobuf"})
+	c.Assert(deps[18], DeepEquals, Dependency{"github.com/milvus-io/milvus/pkg", "0.0.0", "./pkg"})
 }
 
 func (s *DepsySuite) TestAux(c *C) {
@@ -58,4 +60,7 @@ func (s *DepsySuite) TestAux(c *C) {
 
 	var deps Dependencies
 	c.Assert(addDep(deps, Dependency{}), IsNil)
+
+	var repls []replacement
+	c.Assert(addRepl(repls, replacement{}), IsNil)
 }

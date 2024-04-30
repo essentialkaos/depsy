@@ -27,8 +27,9 @@ type Dependencies []Dependency
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 type replacement struct {
-	From Dependency
-	To   Dependency
+	From      Dependency
+	To        Dependency
+	LocalPath string
 }
 
 type replacements []replacement
@@ -84,12 +85,20 @@ REPL:
 		for index, dep := range deps {
 			if repl.From.Version == "" {
 				if dep.Path == repl.From.Path {
-					deps[index] = repl.To
+					if repl.LocalPath != "" {
+						deps[index].Extra = repl.LocalPath
+					} else {
+						deps[index] = repl.To
+					}
 					continue REPL
 				}
 			} else {
 				if dep.String() == repl.From.String() {
-					deps[index] = repl.To
+					if repl.LocalPath != "" {
+						deps[index].Extra = repl.LocalPath
+					} else {
+						deps[index] = repl.To
+					}
 					continue REPL
 				}
 			}
@@ -103,8 +112,11 @@ REPL:
 
 // String returns string representation of dependency
 func (d Dependency) String() string {
-	if d.Extra == "" {
+	switch {
+	case d.Extra == "":
 		return d.Path + ":" + d.Version
+	case d.Extra[0] == '.' || d.Extra[0] == '/':
+		return d.Path + ":" + d.Version + "→" + d.Extra
 	}
 
 	return d.Path + ":" + d.Version + "+" + d.Extra
@@ -123,7 +135,7 @@ func addDep(deps Dependencies, dep Dependency) Dependencies {
 
 // addRepl appends replacement to slice with replacements if not empty
 func addRepl(repls replacements, repl replacement) replacements {
-	if repl.To.Path == "" || repl.From.Path == "" {
+	if repl.From.Path == "" || (repl.To.Path == "" && repl.LocalPath == "") {
 		return repls
 	}
 
@@ -176,13 +188,16 @@ func parseReplacementLine(data string) replacement {
 		toVer = getField(info, 4)
 	}
 
-	if toPath[0] == '.' {
-		return replacement{}
-	}
-
 	fromVer, fromExtra = parseVersion(fromVer)
 	toVer, toExtra = parseVersion(toVer)
 	majorVersion := getMajorVersion(toVer)
+
+	if toPath[0] == '.' || toPath[0] == '/' {
+		return replacement{
+			From:      Dependency{fromPath, fromVer, fromExtra},
+			LocalPath: toPath,
+		}
+	}
 
 	if strings.HasSuffix(toPath, "/v"+majorVersion) {
 		toPath = toPath[:len(toPath)-(len(majorVersion)+2)]
