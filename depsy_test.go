@@ -29,13 +29,22 @@ var _ = Suite(&DepsySuite{})
 func (s *DepsySuite) TestExtract(c *C) {
 	data, err := os.ReadFile("testdata/test1.mod")
 	c.Assert(err, IsNil)
+
 	deps := Extract(data, false)
 	c.Assert(len(deps), Equals, 20)
+
 	deps = Extract(data, true)
 	c.Assert(len(deps), Equals, 74)
+
 	c.Assert(deps[5], DeepEquals, Dependency{"go.etcd.io/etcd/api/v3", "3.6.0", "./api"})
 	c.Assert(deps[16], DeepEquals, Dependency{"golang.org/x/time", "0.0.0", "20210220033141-f8bda1e9f3ba"})
 	c.Assert(deps[27], DeepEquals, Dependency{"github.com/golang-jwt/jwt", "3.2.2", ""})
+
+	c.Assert(deps[5].PrettyPath(), Equals, "go.etcd.io/etcd/api")
+
+	c.Assert(deps[5].String(), Equals, "go.etcd.io/etcd/api:3.6.0→./api")
+	c.Assert(deps[16].String(), Equals, "golang.org/x/time:0.0.0+20210220033141-f8bda1e9f3ba")
+	c.Assert(deps[27].String(), Equals, "github.com/golang-jwt/jwt:3.2.2")
 
 	data, err = os.ReadFile("go.mod")
 	c.Assert(err, IsNil)
