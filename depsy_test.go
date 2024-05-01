@@ -8,7 +8,7 @@ package depsy
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 import (
-	"io/ioutil"
+	"os"
 	"testing"
 
 	. "github.com/essentialkaos/check"
@@ -27,7 +27,7 @@ var _ = Suite(&DepsySuite{})
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 func (s *DepsySuite) TestExtract(c *C) {
-	data, err := ioutil.ReadFile("testdata/test1.mod")
+	data, err := os.ReadFile("testdata/test1.mod")
 	c.Assert(err, IsNil)
 	deps := Extract(data, false)
 	c.Assert(len(deps), Equals, 20)
@@ -37,7 +37,7 @@ func (s *DepsySuite) TestExtract(c *C) {
 	c.Assert(deps[16], DeepEquals, Dependency{"golang.org/x/time", "0.0.0", "20210220033141-f8bda1e9f3ba"})
 	c.Assert(deps[27], DeepEquals, Dependency{"github.com/golang-jwt/jwt", "3.2.2", ""})
 
-	data, err = ioutil.ReadFile("go.mod")
+	data, err = os.ReadFile("go.mod")
 	c.Assert(err, IsNil)
 	deps = Extract(data, false)
 	c.Assert(len(deps), Equals, 1)
@@ -45,7 +45,7 @@ func (s *DepsySuite) TestExtract(c *C) {
 	c.Assert(len(deps), Equals, 4)
 	c.Assert(deps[0], DeepEquals, Dependency{"github.com/essentialkaos/check", "1.4.0", ""})
 
-	data, err = ioutil.ReadFile("testdata/test2.mod")
+	data, err = os.ReadFile("testdata/test2.mod")
 	c.Assert(err, IsNil)
 	deps = Extract(data, true)
 
