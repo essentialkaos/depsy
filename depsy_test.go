@@ -33,7 +33,8 @@ func (s *DepsySuite) TestExtract(c *C) {
 	c.Assert(len(deps), Equals, 20)
 	deps = Extract(data, true)
 	c.Assert(len(deps), Equals, 74)
-	c.Assert(deps[5], DeepEquals, Dependency{"go.etcd.io/etcd/api", "3.6.0", "alpha.0"})
+	c.Assert(deps[5], DeepEquals, Dependency{"go.etcd.io/etcd/api/v3", "3.6.0", "./api"})
+	c.Assert(deps[16], DeepEquals, Dependency{"golang.org/x/time", "0.0.0", "20210220033141-f8bda1e9f3ba"})
 	c.Assert(deps[27], DeepEquals, Dependency{"github.com/golang-jwt/jwt", "3.2.2", ""})
 
 	data, err = ioutil.ReadFile("go.mod")
