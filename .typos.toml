@@ -1,2 +1,2 @@
 [files]
-extend-exclude = ["go.sum", "testdata/*.mod"]
+extend-exclude = ["go.sum", "testdata/*.mod", "depsy_test.go"]

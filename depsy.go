@@ -110,16 +110,27 @@ REPL:
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+// PrettyPath strips major version info from the path
+func (d Dependency) PrettyPath() string {
+	majorVersion := getMajorVersion(d.Version)
+
+	if strings.HasSuffix(d.Path, "/v"+majorVersion) {
+		return d.Path[:len(d.Path)-(len(majorVersion)+2)]
+	}
+
+	return d.Path
+}
+
 // String returns string representation of dependency
 func (d Dependency) String() string {
 	switch {
 	case d.Extra == "":
-		return d.Path + ":" + d.Version
+		return d.PrettyPath() + ":" + d.Version
 	case d.Extra[0] == '.' || d.Extra[0] == '/':
-		return d.Path + ":" + d.Version + "→" + d.Extra
+		return d.PrettyPath() + ":" + d.Version + "→" + d.Extra
 	}
 
-	return d.Path + ":" + d.Version + "+" + d.Extra
+	return d.PrettyPath() + ":" + d.Version + "+" + d.Extra
 }
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -152,11 +163,6 @@ func parseDependencyLine(data string) Dependency {
 
 	path := getField(info, 0)
 	version, extra := parseVersion(getField(info, 1))
-	majorVersion := getMajorVersion(version)
-
-	if strings.HasSuffix(path, "/v"+majorVersion) {
-		path = path[:len(path)-(len(majorVersion)+2)]
-	}
 
 	return Dependency{
 		Path:    path,
@@ -190,17 +196,12 @@ func parseReplacementLine(data string) replacement {
 
 	fromVer, fromExtra = parseVersion(fromVer)
 	toVer, toExtra = parseVersion(toVer)
-	majorVersion := getMajorVersion(toVer)
 
 	if toPath[0] == '.' || toPath[0] == '/' {
 		return replacement{
 			From:      Dependency{fromPath, fromVer, fromExtra},
 			LocalPath: toPath,
 		}
-	}
-
-	if strings.HasSuffix(toPath, "/v"+majorVersion) {
-		toPath = toPath[:len(toPath)-(len(majorVersion)+2)]
 	}
 
 	return replacement{
