@@ -1,6 +1,6 @@
 module github.com/essentialkaos/depsy
 
-go 1.18
+go 1.22.7
 
 require github.com/essentialkaos/check v1.4.0
 
