@@ -4,7 +4,6 @@
   <a href="https://kaos.sh/g/depsy"><img src=".github/images/godoc.svg"/></a>
   <a href="https://kaos.sh/r/depsy"><img src="https://kaos.sh/r/depsy.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/l/depsy"><img src="https://kaos.sh/l/b51c11f14ac06e529437.svg" alt="Code Climate Maintainability" /></a>
-  <a href="https://kaos.sh/b/depsy"><img src="https://kaos.sh/b/d2067e6e-8722-4f20-8274-4398ffa09e97.svg" alt="Codebeat badge" /></a>
   <br/>
   <a href="https://kaos.sh/c/depsy"><img src="https://kaos.sh/c/depsy.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/w/depsy/ci"><img src="https://kaos.sh/w/depsy/ci.svg" alt="GitHub Actions CI Status" /></a>
