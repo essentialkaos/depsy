@@ -3,7 +3,6 @@
 <p align="center">
   <a href="https://kaos.sh/g/depsy"><img src=".github/images/godoc.svg"/></a>
   <a href="https://kaos.sh/r/depsy"><img src="https://kaos.sh/r/depsy.svg" alt="GoReportCard" /></a>
-  <a href="https://kaos.sh/l/depsy"><img src="https://kaos.sh/l/b51c11f14ac06e529437.svg" alt="Code Climate Maintainability" /></a>
   <a href="https://kaos.sh/y/depsy"><img src="https://kaos.sh/y/e582190205934d328a62649aae1ed52b.svg" alt="Codacy Badge" /></a>
   <br/>
   <a href="https://kaos.sh/c/depsy"><img src="https://kaos.sh/c/depsy.svg" alt="Coverage Status" /></a>
@@ -74,10 +73,10 @@ func main() {
 
 ### Contributing
 
-Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/contributing-guidelines#contributing-guidelines).
+Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/.github/blob/master/CONTRIBUTING.md).
 
 ### License
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-<p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.st/ekgh.svg"/></a></p>
+<p align="center"><a href="https://kaos.dev"><img src="https://raw.githubusercontent.com/essentialkaos/.github/refs/heads/master/images/ekgh.svg"/></a></p>
