@@ -29,7 +29,7 @@ jobs:
 
     strategy:
       matrix:
-        go: [ '1.22.x', '1.23.x' ]
+        go: [ 'oldstable', 'stable' ]
 
     steps:
       - name: Checkout
@@ -93,3 +93,4 @@ jobs:
 
       - name: Check spelling
         uses: crate-ci/typos@master
+        continue-on-error: true

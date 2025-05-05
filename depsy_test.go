@@ -2,7 +2,7 @@ package depsy
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2024 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2025 ESSENTIAL KAOS                          //
 //      Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>     //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -52,7 +52,7 @@ func (s *DepsySuite) TestExtract(c *C) {
 	c.Assert(len(deps), Equals, 1)
 	deps = Extract(data, true)
 	c.Assert(len(deps), Equals, 4)
-	c.Assert(deps[0], DeepEquals, Dependency{"github.com/essentialkaos/check", "1.4.0", ""})
+	c.Assert(deps[0], DeepEquals, Dependency{"github.com/essentialkaos/check", "1.4.1", ""})
 
 	data, err = os.ReadFile("testdata/test2.mod")
 	c.Assert(err, IsNil)
