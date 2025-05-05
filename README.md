@@ -4,7 +4,6 @@
   <a href="https://kaos.sh/g/depsy"><img src=".github/images/godoc.svg"/></a>
   <a href="https://kaos.sh/r/depsy"><img src="https://kaos.sh/r/depsy.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/y/depsy"><img src="https://kaos.sh/y/e582190205934d328a62649aae1ed52b.svg" alt="Codacy Badge" /></a>
-  <br/>
   <a href="https://kaos.sh/c/depsy"><img src="https://kaos.sh/c/depsy.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/w/depsy/ci"><img src="https://kaos.sh/w/depsy/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/w/depsy/codeql"><img src="https://kaos.sh/w/depsy/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
